@@ -29,15 +29,27 @@ console.log(peopleCopy);
 // Write code that gives the index of “Foo”. Why does it return -1 ?
 let Foo = people.indexOf("Foo");
 console.log(Foo);
-//i don't know why it gives -1?
+//because it's not found
 
 // Create a variable called last which value is the last element of the array.
+let lastIndex = people.length - 1;
+let last = people[lastIndex];
 // Hint: What is the relationship between the index of the last element in the array and the length of the array?
 let lastArray = people[people.length -1];
 console.log(lastArray);
 
 // Part II - Loops
 // Using a loop, iterate through the people array and console.log each person.
-for (let i = 0; )
+for (let i = 0; i < people.length; i ++){
+    console.log(people[i]);
+}
 // Using a loop, iterate through the people array and exit the loop after you console.log “Devon” .
+
+for (let i=0; i <people.length; i++){
+    if(people[i]==="Devon"){
+        break;
+    } else{ 
+        console.log(people[i]);
+    }
+}
 // Hint: take a look at the break statement in the lesson.
