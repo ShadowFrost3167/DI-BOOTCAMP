@@ -44,6 +44,8 @@ if (indexStart < wordBad){
 // * * * *  
 // * * * * *
 // * * * * * *
+
+//1st time
 let star = ["*"]
 
 for (i = 0; i <= 5; i++) {
@@ -51,3 +53,14 @@ for (i = 0; i <= 5; i++) {
     star.push("*");
     
 } 
+
+//2nd time
+
+for (let i= 1; i <= 6; i++){
+    console.log('*'.repeat(i))}
+    let shootingStar = ""
+    for (let j = 0; j<i; j++){
+        ShootingStar += '*';
+    } console.log(shootingStar);
+
+
