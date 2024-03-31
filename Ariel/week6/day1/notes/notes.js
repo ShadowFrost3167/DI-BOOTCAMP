@@ -47,9 +47,9 @@
         currentPet.name = 'sakura';
         currentPet.species = `cat`;
         currentPet.age = 5; 
-        currentPet.status = `only`;
+        currentPet.status = `alive`;
 
-        console.log(pet); //to view object
+        console.log(currentPet); //to view object
 
 
                                 //using [bracket] notation to make object
@@ -93,4 +93,226 @@
         console.log(sonGohan); //returns the altered
         console.log(clonee); //returns altered
         console.log(superClone); //returns origional fully intact :)
+
+
+
+
+
+//=======================================================================
+
+
+
+
+        //                      notes with Ziv
+
+        //if you need to wait for page to render you can add 'defer async' within the script tag after the src. 
+
+
+        //difference between const and let? you must define const, can't leave const's definition empty. you'll get an error
+
+
+let x = `sammy`
+
+function y(){
+    let x = `Sakura`;
+    console.log(x);
+}
+console.log(1,x);
+y();
+
+//^^^^^^^^^^ above example of scoping ^^^ 
+
+
+//=======================================================================
+
+
+//                              default parameters
+
+//function name(paramters){
+    //action
+//}
+
+function sum(a,b=1){
+    console.log(a+b);                       
+}
+sum(1);
+
+//b's default parameter is 1 but if you add ,2 into the sums call you can override the default, to call the default parameter pass undefined in the slots. 
+
+
+//=======================================================================
+
+//                                  condiitonals
+
+
+
+let r;
+let z =5; 
+
+if (z > 3){
+    r = true;
+} else {
+    r = false; 
+}
+console.log(r);
+
+
+
+//ternary operators to do the conditional statement in one line
+
+let s = (z > 3) ? true : false;
+
+// let variable = condition ? return : else;
+
+
+
+
+//=======================================================================
+
+
+//                              template strings
+
+let name = `Dad`;
+
+let greeting = `What's up ` + name;
+
+let hello = `What's up ${name}`;
+
+console.log(1, greeting);
+console.log(2, hello);
+
+//=======================================================================
+
+
+//                              functions
+
+//to return more than one value make a list or an object. 
+
+function da(a,b){
+    let arr = [];
+    arr.push(a+b);
+    arr.push(a*b);
+    return arr;
+}
+
+let ab = da(2,4);
+console.log(da[1], da[2]);
+
+//                      hosting functions
+p();
+let a = p();
+console.log(p);
+
+function p(){
+    return 5;
+}
+let b = p();
+console.log(b);
+
+//                  why does above not run but bottom runs?
+
+dogPrint();
+
+function dogPrint(){
+    console.log("woof")
+}
+
+dogPrint();
+
+//                      if you declare a function within a variable you can only call that function after the variable
+
+
+
+//console.log(gretting(`Judah`));                
+                                     //uncomment to see error
+
+//returns Cannot access 'gretting' before initialization
+
+const gretting = function (names){
+    return (`Hello ${names}`);
+};
+
+console.log(gretting(`Judah`));
+
+//with arrow functions
+
+const greet = (namess) => `Hello ${namess}`;
+
+console.log(greet(`Mor`));
+
+
+//we want to use const because we don't want anyone to overrite our code like they could with let or var
+
+//=======================================================================
+
+
+
+//                          Nested Functions
+
+function red(){
+    function blue(){
+        return `blue`;
+    } return blue;
+}
+
+let color = red();
+
+console.log(color()); 
+                        //return blue
+console.log(red());
+                        //return function blue
+
+                 
+                        
+//=======================================================================
+
+
+//                  CURRYING
+
+const yak = (t) => {
+    return (e) =>  {
+        return t + e;
+    };
+};
+console.log(yak(5)(6)); //returns 11
+
+//=======================================================================
+
+
+//                  COMPOSE
+
+const Sam2 = (num) => (num*2); 
+                                //first function -a
+const Sam = (num) => (num+1);
+                                //second function -b
+
+
+const samCompose = (a,b) => (c) => a(b(c)); //put together
+
+
+let resultk = (Sam2, Sam) => (c=6) => Sam2(Sam(c));
+console.log(resultk);
+
+
+//not working why?
+
+
+
+//obj sytnax to be familiar with 
+
+let email = `lillycolak@ymail.com`;
+let namess = `lilly`;
+
+let userr = {
+    email,
+    namess
+}
+
+console.log(userr);
+
+//              USE FOR-IN TO ITERATE OBJECT
+
+for (let x in userr){
+    console.log(x, userr[x]);
+}
 
