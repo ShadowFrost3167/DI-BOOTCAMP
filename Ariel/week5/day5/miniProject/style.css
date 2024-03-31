@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 20;
+    padding: 20;
+}
+
+#container {
+border: 1px solid black;
+height: 100vh;
+display: grid;
+grid-template-columns: 1fr 4fr;
+background-color: rgb(21, 27, 24);
+}
+
+#sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    
+}
