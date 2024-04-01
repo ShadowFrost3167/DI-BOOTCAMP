@@ -1,4 +1,4 @@
-// 🌟 Exercise 1 : Scope
+
 // Instructions
 // Analyse the code below, and predict what will be the value of a in all the following functions.
 // Write your prediction as comments in a js file. Explain your predictions.
@@ -201,22 +201,30 @@ weightConvert(50);
 // Create a self invoking function that takes 4 arguments: number of children, partner’s name, geographic location, job title.
 let numOfChildren = 3;
 let partnerName =  `Judah`;
-let location = `Jerusalem`;
-let job = `Full Stack Developer`
-(future (numOfChildren, partnerName, location, job){
-
-    let sentence = `You will be a ${job} in ${location}, and married to ${partnerName} with ${numOfChildren} kids.`;
+let city = `Jerusalem`;
+let job = `Full Stack Developer`;
+console.log("look here");
+(function future (numOfChildren, partnerName, city, job){
+    let sentence = `You will be a ${job} in ${city}, and married to ${partnerName} with ${numOfChildren} kids.`;
     let outputElement = document.getElementById("output");
 
-    future.textContent = future;
-})();
+    if (!outputElement){
+        outputElement = document.createElement("div");
+        outputElement.id = "output";
+        document.body.appendChild(outputElement);
+    }
+    outputElement.textContent = sentence;
+
+})(numOfChildren, partnerName, city,  job);
 
 
 
 
 
 // The function should display in the DOM a sentence like "You will be a <job title> in <geographic location>, and married to <partner's name> with <number of children> kids."
-
+let outputElement = document.createElement("div");
+outputElement.id = "output";
+document.body.appendChild(outputElement);
 //=========================================================================
 
 // 🌟 Exercise 7 : Welcome
@@ -227,6 +235,7 @@ let job = `Full Stack Developer`
 // In your js file, create a self invoking funtion that takes 1 argument: the name of the user that just signed in.
 // The function should add a div in the nabvar, displaying the name of the user and his profile picture.
 
+//need help on this. lost on how to approach.
 
 //=========================================================================
 
@@ -236,7 +245,29 @@ let job = `Full Stack Developer`
 
 // Part I:
 // The outer function named makeJuice receives 1 argument: the size of the beverage the client wants - small, medium or large.
+document.addEventListener("DOMContentLoaded", function(){
+function makeJuice(size){
+    let ingredients = [];
+    function addIngredients(in1, in2, in3){
+        ingredients.push(in1, in2, in3);
+        const sentence = `The client wants a ${size} juice containing ${in1}, ${in2}, ${in3}.`;
+        const sentenceDiv = document.createElement("div");
+        sentenceDiv.textContent = sentence;
+        document.body.appendChild(sentenceDiv);
+        console.log(sentence); //remove before pushing
+    }
+    function displayJuice(){
+        const sentence = `The client wants a ${size} juice containing ${in1}, ${in2}, ${in3}.`;
+        const sentenceDiv = document.createElement("div");
+        sentenceDiv.textContent = sentence;
+        document.body.appendChild(sentenceDiv);
+    }
 
+    addIngredients("kiwi", "banana", "strawberry");
+    addIngredients(`Mango`, `Coconut`, `Papaya`);
+
+    displayJuice();
+} makeJuice("large");});
 // The inner function named addIngredients receives 3 ingredients, and displays on the DOM a sentence like The client wants a <size drink> juice, containing <first ingredient>, <second ingredient>, <third ingredient>".
 
 // Invoke the inner function ONCE inside the outer function. Then invoke the outer function in the global scope.
