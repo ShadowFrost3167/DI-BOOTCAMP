@@ -209,7 +209,7 @@ function p(){
 let b = p();
 console.log(b);
 
-//                  why does above not run but bottom runs?
+
 
 dogPrint();
 
