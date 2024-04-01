@@ -53,6 +53,31 @@ function multiply(number){
 
 } console.log(`multiply`,multiply(number));
 
+
+//EXAMPLE OF CREATING ARRAY WITH FOR EACH
+let hero = [
+    {
+        name: `Harry Potter`,
+        species: `Wizard`,
+        items: [`wand`, `cloak`, `firebolt`]
+    },
+    {
+        name: `Hornet`,
+        species: `Spider`,
+        items: [`nail`, `pink dress`]
+    },
+    {
+        name: `Sora`,
+        species: `Islander`,
+        items: [`keyblade`, `anklet`, `potion`]
+    },
+];
+
+const heroNames = [];
+hero.forEach(character => {
+    heroNames.push(character.name);
+}); console.log(heroNames);
+
 // MAP
 
 //when you use map you can integrate an array and return a new array .map
