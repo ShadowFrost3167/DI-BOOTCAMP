@@ -235,3 +235,53 @@ console.log(cat1);
 //==================================================================
 
 
+class Video{
+    constructor(title, uploader, time){
+        this.title = title;
+        this.uploader = uploader;
+        this.time = time;
+    }
+    watTitle(){
+        return this.title;
+    }
+    whoUpload(){
+        return this.uploader;
+    }
+    whenTime(){
+        return this.time;
+    }
+};
+
+
+
+let HarryPotter = new Video("Harry Potter and the Prisoner of Azkaban", "Warner Bros", 50000) //making new instance of a Video.
+
+
+let spiritedAway = new Video(`Spirited Away`, `Hayao Miyazaki`, 7500) //make new instance with different values
+
+let dvdStore = [HarryPotter, spiritedAway];
+
+
+//push the method into the object
+Video.prototype.watch = function (){
+    console.log(`${this.uploader} watched ${this.time} of ${this.title}!`)
+};
+
+//mistake:
+// Video.forEach(video=>{
+//     dvdStore.push([dvd.title, dvd.uploader, dvd.time]);
+// }); console.log(dvdStore);
+
+
+dvdStore.forEach(video=>{
+    video.watch();
+});                             //apply watch method to all videos in dvd
+
+
+let discountDVDs = [
+    new Video(`Grave of the Fireflies`, `Hayao Miyazaki`, ),
+    new Video(),
+    new Video(),
+    new Video(),
+    new Video(),
+]
