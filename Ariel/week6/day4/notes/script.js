@@ -69,11 +69,11 @@ let posts = `[
   
   // console.log(JSON.stringify(arr,null,2));
   
-  let users = [
-    { id: 1, username: "aaa", password: "123456" },
-    { id: 2, username: "bbb", password: "ab45tf" },
-    { id: 3, username: "ccc", password: "1q2w3e" },
-  ];
+  // let users = [
+  //   { id: 1, username: "aaa", password: "123456" },
+  //   { id: 2, username: "bbb", password: "ab45tf" },
+  //   { id: 3, username: "ccc", password: "1q2w3e" },
+  // ];
   
   const whatever = (key, value) => {
     if(key === 'password') return undefined
@@ -142,15 +142,60 @@ let posts = `[
     { title: "sss", uploader: "nnn", time: 5 },
     { title: "uuu", uploader: "ppp", time: 65 },
   ];
+  //                                UNCOMMENTABLE ↓↓↓↓
+  // let arr = [];
+  // arr5videos.forEach((item) => {
+  //   let video = new Video(item.title, item.uploader, item.time);
+  //   arr.push(video);
+  // });
   
-  let arr = [];
-  arr5videos.forEach((item) => {
-    let video = new Video(item.title, item.uploader, item.time);
-    arr.push(video);
-  });
+  // console.log(arr);
   
-  console.log(arr);
+  // arr.forEach(item => {
+  //   console.log(item.watch());
+
   
-  arr.forEach(item => {
-    console.log(item.watch());
-  })
+  // })
+//                                  UNCOMMENTABLE ↑↑↑↑↑↑
+  
+
+
+//exeptions
+
+  console.log("before");
+
+try {
+hello           //hello is an error
+} catch(error){
+  console.log(err.message);
+
+}
+
+  console.log("after");
+
+
+  function exampleExeption(){               //code to the left creates an error because hello is not a defined function or variable
+    hello
+  }
+
+  function callEE(){
+    try{
+      exampleExeption();
+
+    } catch(e){   
+      throw new Error (`ooops...`);                        //by using try catch it helps to add an exception to your code
+      // console.log(e.message, e.name, e.stack);
+
+    }
+    finally{
+      console.log(`rrrr`);
+    }
+  }
+
+
+  //this will return everything except the key that's specified and it will add 0 to the specified value.
+// const pretify = (key, value) =>{
+//     if(key===`speed`){
+//         return 0
+//     }return value;
+// }
