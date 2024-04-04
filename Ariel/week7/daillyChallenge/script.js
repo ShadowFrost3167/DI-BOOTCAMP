@@ -170,41 +170,96 @@ const morse = `{
 const toJs = (obj) =>{
     return new Promise((resolve, reject)=>{
         // if the morse javascript object is empty, throw an error (use reject)
-        if (Array.isArray(obj)){
-            if(obj.length === 0) {
+        if(!obj || obj.length === 0) {
             reject(`Signal Disrupted`);
-        } else{
-            resolve(obj);
-        }
+        } 
         // else return the morse javascript object (use resolve)
-    } else if (typeof obj === "object"){
-        const spyWhite = Object.entries(obj);
-    const spyBlack = JSON.stringify(spyWhite);
-    resolve(spyBlack);
-    
-    } else{
-        reject(`Signal Disrupted`);
+    else {
+        try{
+            const spyBlack = JSON.parse(obj);
+            // console.log("Parsed Morse object:", spyBlack);       was having issues with the 
+                                                                // second function so tested if it was parsing properly
+            resolve(spyBlack);
+        } catch(error){
+            reject(`didn't work`);
+        }
     }
-});
-
     
-};
-
-
-
+}); 
+};    
 
 // The second function called toMorse(morseJS), takes one argument: the new morse javascript object.
 
+    // Define the toJs function to parse the Morse JSON string
 
 
-// This function asks the user for a word or a sentence.
-// if the user entered a character that doesn’t exist in the new morse javascript object, throw an error. (use reject)
+// Define the toMorse function to translate user input to Morse code
+const toMorse = (morseObj) => {
+    var toMorseCode = prompt("Type what you want to say in Morse Code:");
+    if (!toMorseCode) {
+        return Promise.reject("No input provided.");
+    }
+    const search = toMorseCode.toLowerCase();
+    return new Promise((resolve, reject) => {
+        const ditDot = [];
+        for (let char of search) {
+            if (char in morseObj) {
+                ditDot.push(morseObj[char]);
+            } else {
+                reject(`Character "${char}" is not translatable.`);
+                return;
+            }
+        }
+        resolve(ditDot);
+    });
+};
+
+// Call the toJs function to parse the Morse JSON string
+toJs(morse)
+    .then((morseObj) => {
+        // Pass the Morse object to the toMorse function
+        return toMorse(morseObj);
+    })
+    .then((ditDot) => {
+        return ditDot;
+    })
+    .then((ja)=>{
+        joinWords(ja);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 // else return an array with the morse translation of the user’s word.
+
+
 // if the user enters the word "Hello", the promise resolves with this value ["....", ".", ".-..", ".-..","---"]
+
+
 // if the user entered the word "¡Hola!", the promise rejects because the character "¡" doesn't exist in the morse javascript object
+    
+
+
+
+
+
+
 
 
 // The third function called joinWords(morseTranslation), takes one argument: the morse translation array
+
+
+const joinWords = (ditDot) => {
+    const stringyMouse = ditDot.join("<br>");
+
+    const feedDisplay = document.createElement('div');
+    document.body.appendChild(feedDisplay);
+    if (feedDisplay){
+        feedDisplay.innerHTML = stringyMouse;
+    } else{
+        console.log(`didn't do element right`);
+    }
+};
+
 
 // this function joins the morse translation by using line break and display it on the page (ie. On the DOM)
 
