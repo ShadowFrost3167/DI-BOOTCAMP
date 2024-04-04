@@ -1,3 +1,7 @@
+<!-- // Instructions
+// Part 1 : Quote Generator
+// Create an HTML file, that contains a section (for now the section is empty), and a button “Generate Quote”. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,35 @@
 </head>
 <body>
     <div>
+        
         <button id="generateButton">Generate Quote</button>
+        
+        <form action="http://127.0.0.1:5500/Ariel/week6/day4/MiniProjectQuote/index.html" id="forms" method="get">
+            <!-- // In the HTML file, under the displayed quote, create a few more buttons:
+// A button that gives the number of character inside each quote (space included)
+// A button that gives the number of character inside each quote (space NOT included)
+// A button that gives the number of words in each quote
+// A button “Like” for the user to like a quote. Hint : add a new key to each object that will represent the number of “likes”. -->
+
+<button id="numCharachterSpace">Number of Characters + Whitespace</button>
+<button id="numCharacterNoSpace">Number of Characters </button>
+<button id="wordsAmnt">How Many Words Are There?</button>
+<button id="like">Click to Like!</button>
+    
+
+            <!-- // Part 2 : Add Buttons
+// In the HTML file, create a form with the inputs “Quote” and “Author” and a button. So when you click on the button, you can add a new quote to the array of object.
+// Important: Don’t forget to set the id of the new quotes -->
+            <div id="divQuote">
+                Quote: <input type="Quote" name="quote" id="quote">
+            </div>
+            <div id="divAuthor">
+                 Author: <input type="Author" name="author" id="author">
+            </div>
+            <div id="divSubmit">
+                <input type="submit" value="submit">
+            </div>
+        </form>
 
     </div>
 
@@ -17,3 +49,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
