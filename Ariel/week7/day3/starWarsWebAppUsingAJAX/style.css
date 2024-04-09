@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(21, 21, 23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#info{
+    text-align: center;
+    color: rgb(231, 240, 230);
+    font-size: 8px;
+}
+
+button{
+    background-color: rgb(97, 90, 127);
+    color: rgb(244, 246, 195);
+    border: none;
+    padding: 10px, 20px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button:hover{
+    background-color: rgb(239, 163, 20);
+    color: grey;
+}
+
+#loading{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+}
+
+#button-container{
+    text-align: center;
+}
